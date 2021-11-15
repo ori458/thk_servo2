@@ -18,14 +18,14 @@ namespace THK {
     let ServoZeroOffset = 0x66
 
     let initalised = false //a flag to allow us to initialise without explicitly calling the secret incantation
-    let keisuu_setting = 80
+    let keisuu_setting = 80 //旧モータ係数設定用　今は未使用　
 
     //nice big list of servos for the block to use. These represent register offsets in the PCA9865
     export enum Servos {
-        SV1 = 0x08,
-        SV2 = 0x0C,
-        SV3 = 0x10,
-        SV4 = 0x14,
+        モーター1 = 0x08,
+        モーター2 = 0x0C,
+        モーター3 = 0x10,
+        /*SV4 = 0x14,
         SV5 = 0x18,
         SV6 = 0x1C,
         SV7 = 0x20,
@@ -38,6 +38,7 @@ namespace THK {
         SV14 = 0x3C,
         SV15 = 0x40,
         SV16 = 0x44,
+        */
     }
 
     export enum BoardAddresses {
@@ -116,11 +117,11 @@ namespace THK {
     }
 
     //% blockId=Kitronik_servo
-    //% block="サーボ %Servo|を %degrees|度にする"
+    //% block="%Servo|を %degrees|度にする"
     //% degrees.min=-90 degrees.max=90
-    /**～
+    /**
  * サーボモータの角度を指定（-90°～+90°)
- * 正面から見て時計周りが+
+ * 正面から見て時計周りが「+」、半時計周りが「-」
  * @param degrees describe parameter here, eg: 0
  */
     export function サーボモータ(Servo: Servos, degrees: number): void {
@@ -128,8 +129,10 @@ namespace THK {
             secretIncantation()
         }
 
-        degrees = degrees + 90
-        if (degrees < 1) {
+        degrees = degrees - 90 //-180～0度
+        degrees = -degrees //反転（時計周りを＋にするため)
+
+        if (degrees < 1) { //0°でモータが震えるため
             degrees = 1
         }
 
