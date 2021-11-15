@@ -138,7 +138,7 @@ namespace THK {
 
         let buf = pins.createBuffer(2)
         let HighByte = false
-        let deg100 = degrees * 80 //元は100
+        let deg100 = degrees * 75 //元は100
         let PWMVal100 = deg100 * ServoMultiplier
         let PWMVal = PWMVal100 / 10000
 
