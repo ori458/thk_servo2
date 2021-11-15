@@ -118,9 +118,10 @@ namespace THK {
     //% blockId=Kitronik_servo
     //% block="サーボ %Servo|を %degrees|度にする"
     //% degrees.min=-90 degrees.max=90
-    /**
- * TODO: describe your function here
- * @param degrees describe parameter here, eg: 90
+    /**～
+ * サーボモータの角度を指定（-90°～+90°)
+ * 正面から見て時計周りが+
+ * @param degrees describe parameter here, eg: 0
  */
     export function サーボモータ(Servo: Servos, degrees: number): void {
         if (initalised == false) {
