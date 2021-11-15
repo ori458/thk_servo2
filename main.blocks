@@ -1,1 +1,1 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><block type="Kitronik_servo" id="NG,uIF^H{@rkrZwj/U}L" disabled="true" x="16" y="74"><field name="Servo">THK.Servos.SV1</field><value name="degrees"><shadow type="math_number_minmax" id="e_|,m4sJs5-c(WHl%PcL" disabled="true"><mutation min="-90" max="90" label="Degrees" precision="0"/><field name="SLIDER">0</field></shadow></value></block></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"/>
